@@ -233,6 +233,7 @@ begin
       '   RDB$COLLATION_ID AS "Id",'+
       '   RDB$CHARACTER_SET_ID'+
       ' FROM RDB$COLLATIONS';
+    qGetCharsets: Result := 'SELECT RDB$CHARACTER_SET_NAME AS "Charset", RDB$CHARACTER_SET_NAME AS "Description" FROM RDB$CHARACTER_SETS';
   end;
 end;
 

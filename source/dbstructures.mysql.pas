@@ -3311,6 +3311,11 @@ begin
         ' ORDER BY `Collation`',
       ''
       );
+    qGetCharsets: Result := IfThen(
+      FServerVersion >= 40100,
+      'SHOW CHARSET',
+      ''
+      );
     else Result := inherited;
   end;
 end;

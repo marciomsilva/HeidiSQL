@@ -425,6 +425,9 @@ begin
     qGetTableColumns: Result := 'SELECT * FROM pragma_table_xinfo(%s, %s)';
     // See https://www.sqlite.org/datatype3.html#collation_sequence_examples
     qGetCollations: Result := 'SELECT name AS "Collation", '''' AS "Charset", '''' AS "Id", '''' AS "Default", '''' AS "Compiled", ''1'' AS Sortlen from pragma_collation_list';
+    qGetCharsets: Result := 'SELECT ''UTF-8'' AS "Charset", ''UTF-8'' AS "Description" '+
+      'UNION SELECT ''UTF-16le'', ''UTF-16 Little Endian'' '+
+      'UNION SELECT ''UTF-16be'', ''UTF-16 Big Endian''';
     else Result := inherited;
   end;
 end;

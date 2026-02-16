@@ -705,6 +705,10 @@ begin
       '' // ServerVersion < 12
       );
 
+    qGetCharsets: Result := 'SELECT DISTINCT pg_encoding_to_char(enc) AS "Charset" FROM '+
+      '(SELECT conforencoding AS enc FROM pg_catalog.pg_conversion '+
+      '  UNION '+
+      '  SELECT contoencoding AS enc FROM pg_catalog.pg_conversion) AS x';
     else Result := inherited;
   end;
 end;

@@ -475,6 +475,7 @@ begin
       ''''' AS "Charset", 0 AS "Id", '+
       ''''' AS "Default", '''' AS "Compiled", '+
       '1 AS "Sortlen"';
+    qGetCharsets: Result := 'SELECT name AS Charset, description AS Description FROM master.sys.syscharsets';
     else Result := inherited;
   end;
 end;
